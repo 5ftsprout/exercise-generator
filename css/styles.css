@@ -1,0 +1,89 @@
+
+* {
+     box-sizing: border-box;
+     margin: 0;
+}
+
+/******************************************
+/* BASE STYLES
+/*******************************************/
+html {
+     font-size: 62.5%;
+     font-family: sans-serif;
+}
+.category_list {
+     display: inline;
+}
+h2 {
+     font-size: 3em;
+     text-align: center;
+}
+.exercise_container {
+     width: 50%;
+     border: 0.25em solid lightseagreen;
+     border-radius: 1em;
+     margin: 2%;
+     height: 50vh;
+}
+li {
+     list-style: none;
+     padding: 2%;
+}
+a {
+     text-decoration: none;
+}
+
+/******************************************
+/* LAYOUT
+/*******************************************/
+body {
+     height: 100vh;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+#category_list {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.exercise_container {
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.exercise_info {
+     text-align: center;
+}
+footer {
+     position: absolute;
+     bottom: 0;
+     padding: 1%;
+}
+/******************************************
+/* ADDITIONAL STYLES
+/*******************************************/
+/* Small Screen, Laptop */
+@media all and (min-width: 1251px) {
+     .exercise_container {
+          width: 25%;
+     }
+}
+/* iPad, Tablet */
+@media all and (max-width: 1250px) and (min-width: 481px) {
+     #category_list {
+          display: block;
+          text-align: center;
+          padding-top: 5%;
+     }
+}
+/* Mobile */
+@media all and (max-width: 480px) {
+     body {
+          flex-direction: column;
+     }
+     .exercise_container {
+          width: 90%;
+     }
+}
+
