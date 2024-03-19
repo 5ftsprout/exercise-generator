@@ -25,13 +25,23 @@ function generateExercise(){
     fetchExercise()
     function fetchExercise() {
         fetch(url)
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) {
+                throw new Error(`HTTP error: ${res.status}`);
+            }
+            return res.json();
+        })
         .then(data => {
-            numOfExercises = data.count
-            randomPageNum = Math.floor(Math.random() * (numOfExercises))
-            console.log(randomPageNum)
+            numOfExercises = data.count;
+            randomPageNum = Math.floor(Math.random() * (numOfExercises));
+            console.log(randomPageNum);
             fetch(`${url}/?limit=50&offset=${randomPageNum}`)
-                .then(res => res.json())
+                .then(res => {
+                    if (!res.ok) {
+                        throw new Error(`HTTP error: ${res.status}`);
+                    }
+                    return res.json();
+                })
                 .then(data => {
                     for (i=0; i < 50; i++)
                         if (data.results[i].category == catId && data.results[i].language == '2') {
